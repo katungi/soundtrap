@@ -1,13 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:soundtrap/views/pad.dart';
 
-class PadBank extends StatefulWidget {
-  @override
-  _PadBankState createState() => _PadBankState();
-}
+class PadBank extends StatelessWidget {
 
-class _PadBankState extends State<PadBank> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+    @override
+    Widget build(BuildContext context) {
+
+        Size size = MediaQuery.of(context).size;
+        double padBankHeight = (size.height / 3);
+        double padHeight = padBankHeight / 2;
+        double padWidth = size.width / 3;
+
+        return Container(
+            height: padBankHeight,
+            color: Colors.black38,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: List<Widget>.generate(2, (i) =>
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: List<Widget>.generate(3, (j) =>
+                            Pad(
+                                height: padHeight,
+                                width: padWidth,
+                                value: 3 * i + j
+                            )
+                        )
+                    )
+                )
+            )
+        );
+    }
 }

@@ -1,13 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:soundtrap/services/audio-engine.dart';
+import 'package:soundtrap/services/sampler.dart';
+import 'package:soundtrap/views/track.dart';
 
-class Sequencer extends StatefulWidget {
-  @override
-  _SequencerState createState() => _SequencerState();
-}
+class Sequencer extends StatelessWidget {
 
-class _SequencerState extends State<Sequencer> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
+    Sequencer({Key key}) : super(key: key);
+
+    final BorderSide _border = BorderSide(color: Colors.amber.withOpacity(0.4));
+
+    @override
+    Widget build(BuildContext context) {
+
+        double labelWidth = MediaQuery.of(context).size.width / 5;
+
+        return Expanded(
+            child: Container(
+                decoration: BoxDecoration(
+                    border: Border(top: _border),
+                    color: Colors.black45,
+                ),
+                child: Column(
+                    children: List<Widget>.generate(Sampler.samples.length, (i) =>
+                        Expanded(
+                            child: Container(
+                                decoration: BoxDecoration(border: Border(bottom: _border)),
+                                child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                                    children: <Widget>[
+                                        InkWell(
+                                            enableFeedback: false,
+                                            onTap: () => AudioEngine.on<PadEvent>(PadEvent(DRUM_SAMPLE.values[i])),
+                                            child: Container(
+                                                width: labelWidth,
+                                                color: Sampler.colors[i].withOpacity(0.2),
+                                                child: Center(child: Text(Sampler.samples[DRUM_SAMPLE.values[i]]))
+                                            ),
+                                        ),
+                                        Track(sample: DRUM_SAMPLE.values[i])
+                                    ]
+                                )
+                            )
+                        )
+                    ),
+                )
+            )
+        );
+    }
 }
