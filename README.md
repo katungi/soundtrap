@@ -1,16 +1,8 @@
-# soundtrap
+# soundtrap - Clone
 
-A new Flutter application.
+Soundtrap is a beat making application created by spotify
 
-## Getting Started
+## Warning - This is just a Demo App and Not the REAL APP
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- The app is just made for fun and practice
+- The app aims to impress some pretty already impressive people
