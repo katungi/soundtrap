@@ -5,15 +5,23 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  final String _title = "SoundTrap Demo";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xFF41224a),
+          title: Center(
+            child: Text(_title),
+          ),
+        ),
+        body: Center(
+          child: Text(_title),
+        ),
       ),
-      home: ,
     );
   }
 }
