@@ -6,7 +6,7 @@ import 'package:soundtrap/views/pad-bank.dart';
 import 'package:soundtrap/views/sequencer.dart';
 import 'package:soundtrap/views/transport.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
@@ -15,22 +15,30 @@ void main() async{
 }
 
 class Game extends StatelessWidget {
-  final String _title = "SoundTrap Demo";
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Color(0xFF41224a),
-            title: Center(
-              child: Text(_title),
-            ),
-          ),
-          body: Column(
-            children: [Display(), Sequencer(), Transport(), PadBank()],
-          )),
+      title: 'SoundTrap',
+      home: HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  final String _title = "SoundTrap";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        title: Center(
+          child: Text(_title),
+        ),
+      ),
+      body: Column(
+        children: [Display(), Sequencer(), Transport(), PadBank()],
+      ),
     );
   }
 }
